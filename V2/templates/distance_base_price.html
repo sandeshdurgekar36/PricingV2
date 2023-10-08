@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="row">
+        <h2 class="text-center bg-success text-white">Add Distance Base Price</h2>
+        <div class="col-12 col-md-4 offset-md-4 mt-5">
+            <form action="" method="post" class="bg-light p-4">
+                {% csrf_token %}
+                {{distance_base_price_form.as_p}}
+                <input type="submit" class="btn btn-primary" name="" id="">
+                <a class="text-dark ms-2" href="/">Back</a>
+            </form>
+        </div>
+    </div>
+    
+{% endblock content %}

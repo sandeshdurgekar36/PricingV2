@@ -1,0 +1,181 @@
+
+{% extends 'index.html' %}
+{% block content %}
+<div class="container-fluid">
+  <h2 class="text-center bg-success text-white">Pricing Module All Data</h2>
+  <!-- <p class="text-end"><a href="/">Add New</a></p> -->
+  <div class="row mt-5">
+
+    <div class="col-12 mt-3">
+      <h2 class="text-center bg-light">Distance Base price</h2>
+      <p class="text-end" style="cursor: pointer;"><a href="{% url 'add-distance-base-price' %}"><i
+            class="bi bi-plus-square-fill fs-5"></i></a></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Price</th>
+            <th scope="col">Km Value</th>
+            <th scope="col">Day</th>
+            <th scope="col">Created Time</th>
+            <th scope="col">Updated Time</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Updated By</th>
+            <th scope="col">Enabled</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in distance_base_price_obj %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{i.price}}</td>
+            <td>{{i.km_value}}</td>
+            <td>{{i.day}}</td>
+            <td>{{i.created_time}}</td>
+            <td>{{i.updated_time}}</td>
+            <td>{{i.created_by__username}}</td>
+            <td>{{i.updated_by__username}}</td>
+            <td>{{i.is_enabled}}</td>
+            <td>
+              <a href="{% url 'edit-distance-base-price'%}?id={{i.id}}" class="btn btn-info">Edit</a>
+              <form action="{% url 'delete-distance-base-price'%}?id={{i.id}}" method="POST" class="d-inline">
+                {% csrf_token %}
+               <input type="submit" value="Delete" class="btn btn-danger" name="" id="">
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12 mt-3">
+      <h2 class="text-center bg-light">Distance Additional price</h2>
+      <p class="text-end" style="cursor: pointer;"><a href="{% url 'add-distance-additional-price' %}"><i
+            class="bi bi-plus-square-fill fs-5"></i></a></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Price</th>
+            <th scope="col">Km Value</th>
+            <th scope="col">Created Time</th>
+            <th scope="col">Updated Time</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Updated By</th>
+            <th scope="col">Enabled</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in distance_addional_price_obj %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{i.price}}</td>
+            <td>{{i.km_value}}</td>
+            <td>{{i.created_time}}</td>
+            <td>{{i.updated_time}}</td>
+            <td>{{i.created_by__username}}</td>
+            <td>{{i.updated_by__username}}</td>
+            <td>{{i.is_enabled}}</td>
+            <td>
+              <a href="{% url 'edit-distance-additional-price'%}?id={{i.id}}" class="btn btn-info">Edit</a>
+              <form action="{% url 'delete-distance-additional-price'%}?id={{i.id}}" method="POST" class="d-inline">
+                {% csrf_token %}
+               <input type="submit" value="Delete" class="btn btn-danger" name="" id="">
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12 mt-3">
+      <h2 class="text-center bg-light">TMF</h2>
+      <p class="text-end" style="cursor: pointer;"><a href="{% url 'add-tmf' %}"><i
+            class="bi bi-plus-square-fill fs-5"></i></a></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Price</th>
+            <th scope="col">Hour</th>
+            <th scope="col">Created Time</th>
+            <th scope="col">Updated Time</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Updated By</th>
+            <th scope="col">Enabled</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in tmf_obj %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{i.price}}</td>
+            <td>{{i.hours}}</td>
+            <td>{{i.created_time}}</td>
+            <td>{{i.updated_time}}</td>
+            <td>{{i.created_by__username}}</td>
+            <td>{{i.updated_by__username}}</td>
+            <td>{{i.is_enabled}}</td>
+            <td>
+              <a href="{% url 'edit-tmf' %}?id={{i.id}}" class="btn btn-info">Edit</a>
+              <form action="{% url 'delete-tmf' %}?id={{i.id}}" method="POST" class="d-inline">
+                {% csrf_token %}
+               <input type="submit" value="Delete" class="btn btn-danger" name="" id="">
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12 mt-3">
+      <h2 class="text-center bg-light">Waiting Charge</h2>
+      <p class="text-end" style="cursor: pointer;"><a href="{% url 'add-waiting-charge' %}"><i
+            class="bi bi-plus-square-fill fs-5"></i></a></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Price</th>
+            <th scope="col">Per Minute Charge</th>
+            <th scope="col">Created Time</th>
+            <th scope="col">Updated Time</th>
+            <th scope="col">Created By_id</th>
+            <th scope="col">Updated By_id</th>
+            <th scope="col">Enabled</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in waiting_charge_obj %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{i.price}}</td>
+            <td>{{i.per_min}}</td>
+            <td>{{i.created_time}}</td>
+            <td>{{i.updated_time}}</td>
+            <td>{{i.created_by__username}}</td>
+            <td>{{i.updated_by__username}}</td>
+            <td>{{i.is_enabled}}</td>
+            <td>
+              <a href="{% url 'edit-waiting-charge' %}?id={{i.id}}" class="btn btn-info">Edit</a>
+              <form action="{% url 'delete-waiting-charge' %}?id={{i.id}}" method="POST" class="d-inline">
+                {% csrf_token %}
+               <input type="submit" value="Delete" class="btn btn-danger" name="" id="">
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>
+{% endblock content %}
