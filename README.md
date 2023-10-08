@@ -14,3 +14,15 @@
 # 7. login for the admin UI -> hit localhost:8000/admin/ or 127.0.0.1:8000/admin/
 # 8. login with the credentials which you created user as a superuser
 # 9. import the excel files which is attached to this repository to save your time instead of adding record from admin panel UI
+
+# 10. Here is the cURL snippet for API
+
+  curl --location --request POST 'localhost:8000/api/get-price/' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "time_taken": "3 hour",
+      "day": "Monday",
+      "distance_traveled_in_km": 5,
+      "waiting_time": "0 min"
+  }'
+# 11. import this is postman for testing
