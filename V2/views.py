@@ -4,8 +4,6 @@ from django.views.generic.base import TemplateView
 from django.views import View
 from datetime import datetime
 
-
-# Create your views here.
 def main(request):
     distance_base_price_obj = DistanceBasePrice.objects.all().values(
         'id', 'price', 'km_value', 'day', 'created_time', 'updated_time', 'created_by__username', 'updated_by__username', 'is_enabled')
