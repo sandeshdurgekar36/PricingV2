@@ -353,3 +353,45 @@ class GetPriceView(viewsets.ModelViewSet):
         return Response({
             "total_price": Price
         })
+
+class Export(APIView):
+    def get(self, request):
+        if request.GET.get('type') == 'distance-additional-price':
+
+            model_columns = DistanceAdditionalPrice._meta.get_fields()
+            column_names = [field.name for field in model_columns if field.concrete]
+
+            data = export(column_names, DistanceAdditionalPrice.objects.all(), 'distance-additional-price')
+
+            return data
+
+
+        if request.GET.get('type') == 'distance-base-price':
+
+            model_columns = DistanceBasePrice._meta.get_fields()
+            column_names = [field.name for field in model_columns if field.concrete]
+
+            data = export(column_names, DistanceBasePrice.objects.all(), 'distance-base-price')
+
+            return data
+        
+
+        if request.GET.get('type') == 'time-multiplier-factor':
+
+            model_columns = TimeMultiplierFactor._meta.get_fields()
+            column_names = [field.name for field in model_columns if field.concrete]
+
+            data = export(column_names, TimeMultiplierFactor.objects.all(), 'time-multiplier-factor')
+
+            return data
+        
+        if request.GET.get('type') == 'waiting-charges':
+            
+            model_columns = WaitingCharge._meta.get_fields()
+            column_names = [field.name for field in model_columns if field.concrete]
+
+            data = export(column_names, WaitingCharge.objects.all(), 'waiting-charges')
+
+            return data
+        
+        return Response({'message':'file uploaded successfully'})
