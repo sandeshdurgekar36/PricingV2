@@ -26,3 +26,9 @@
       "waiting_time": "0 min"
   }'
 # 11. import this is postman for testing
+# 12. New Assignment
+  Here is the curl location to export the datas from the table
+
+  Get API
+
+  curl --location --request GET 'localhost:8000/export?type=distance-additional-price'
