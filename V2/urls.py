@@ -24,5 +24,7 @@ urlpatterns = [
     path('delete-waiting-charge', waitingChargeView.as_view(), name='delete-waiting-charge'),
     path('edit-waiting-charge', UpdatewaitingChargeView.as_view(), name='edit-waiting-charge'),
 
+    path('export', Export.as_view(), name="export") ,  
+
     path('api/', include(router.urls))
 ]
